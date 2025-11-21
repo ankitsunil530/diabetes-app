@@ -1,3 +1,4 @@
+
 # Diabetes Risk Prediction App
 
 A professional web application for predicting diabetes risk using **Fuzzy Logic** and **Machine Learning**. The app provides a user-friendly interface, pictorial risk visualization, feature breakdown, doctor-like recommendations, and age-specific tips.
@@ -134,3 +135,7 @@ MIT License © 2025 Sunil Kumar
   GitHub: [https://github.com/ankitsunil530](https://github.com/ankitsunil530)
 
 ```
+
+---
+
+
