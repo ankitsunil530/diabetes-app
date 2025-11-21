@@ -1,0 +1,161 @@
+/* ============================
+   🌙 DARK THEME HOSPITAL UI
+   ============================ */
+
+body.hospital-bg {
+  background: #0d1117; /* deep modern dark */
+  color: #c9d1d9;      /* soft text */
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  padding-bottom: 40px;
+}
+
+/* Cards */
+.card {
+  background: #161b22;
+  border-radius: 12px;
+  border: 1px solid #30363d;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
+  color: #e6edf3;
+}
+
+/* Headings */
+.card h5, h4, h3, h2 {
+  color: #58a6ff;  /* professional blue shade */
+}
+
+/* Buttons → neon glow */
+.btn-primary {
+  background: linear-gradient(90deg,#238636,#2ea043);
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  transition: 0.2s ease-in-out;
+  box-shadow: 0 0 12px rgba(46, 160, 67, 0.4);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(90deg,#2ea043,#3fb950);
+  box-shadow: 0 0 16px rgba(63, 185, 80, 0.6);
+  transform: translateY(-1px);
+}
+
+/* Secondary buttons */
+.btn-outline-light {
+  color: #c9d1d9;
+  border-color: #c9d1d9;
+}
+
+.btn-outline-light:hover {
+  background: #c9d1d9;
+  color: #0d1117;
+}
+
+/* Small muted text */
+.small {
+  font-size: .9rem;
+  color: #8b949e !important;
+}
+
+/* Tables */
+.table {
+  color: #e6edf3;
+}
+
+.table th {
+  background: #21262d;
+  color: #c9d1d9;
+  border-color: #30363d;
+}
+
+.table td {
+  background: #161b22;
+  color: #c9d1d9;
+  border-color: #30363d;
+}
+
+/* Table hover effect */
+.table-hover tbody tr:hover {
+  background-color: rgba(88, 166, 255, 0.08);
+}
+
+/* Shadows */
+.shadow-sm {
+  box-shadow: 0 6px 18px rgba(0,0,0,0.45) !important;
+}
+
+/* Form inputs */
+.form-control {
+  background: #0d1117;
+  border: 1px solid #30363d;
+  color: #c9d1d9;
+}
+
+.form-control:focus {
+  background: #0d1117;
+  border-color: #58a6ff;
+  box-shadow: 0 0 6px rgba(56, 139, 253, 0.4);
+  color: #fff;
+}
+
+/* Labels */
+.form-label {
+  color: #c9d1d9;
+}
+
+/* Navbar */
+.navbar-dark {
+  background: #161b22 !important;
+  border-bottom: 1px solid #30363d;
+}
+
+.navbar-brand {
+  color: #58a6ff !important;
+  font-weight: 600;
+}
+/* Full Dark Background */
+body.hospital-bg {
+  background: #0d1117;
+  color: #c9d1d9;
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Dark Cards */
+.dark-card {
+  background: #161b22 !important;
+  border: 1px solid #30363d;
+  border-radius: 12px;
+}
+
+/* Inputs */
+.dark-input {
+  background: #0d1117;
+  border: 1px solid #30363d;
+  color: #c9d1d9;
+}
+
+.dark-input:focus {
+  outline: none;
+  border-color: #58a6ff;
+  box-shadow: 0 0 0 2px rgba(88,166,255,0.4);
+}
+
+/* Navbar Links */
+.nav-link:hover {
+  color: #58a6ff !important;
+}
+
+/* Buttons */
+.btn-info {
+  background: #58a6ff;
+  border: none;
+}
+
+.btn-outline-light {
+  border: 1px solid #c9d1d9;
+  color: #c9d1d9;
+}
+
+.btn-outline-light:hover {
+  background: #c9d1d9;
+  color: #0d1117;
+}

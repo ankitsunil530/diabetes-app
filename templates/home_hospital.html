@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Hospital Dashboard — Diabetes Risk</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='hospital.css') }}">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body class="hospital-bg">
+
+<!-- ============================ NAVBAR ============================ -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm border-bottom border-secondary">
+  <div class="container">
+
+    <a class="navbar-brand fw-bold text-light" href="#">
+      <span class="me-2">🩺</span> Health Risk Dashboard
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMenu">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+
+        <li class="nav-item me-3">
+          <a class="nav-link text-light" href="/">Home</a>
+        </li>
+
+        <li class="nav-item me-3">
+          <a class="nav-link text-light" href="/history">History</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="btn btn-outline-info px-3 py-1" href="/about">
+            About
+          </a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- ============================ /NAVBAR ============================ -->
+
+<div class="container py-5">
+  <div class="row">
+
+    <!-- ====================== LEFT: FORM CARD ====================== -->
+    <div class="col-lg-8">
+      <div class="card p-4 shadow-sm dark-card">
+        <h4 class="mb-3 text-info">Patient Details & Tests</h4>
+
+        <form action="/predict" method="POST" id="patientForm">
+          <div class="row g-2">
+
+            <div class="col-md-3">
+              <label class="form-label small">Pregnancies</label>
+              <input name="preg" type="number" class="form-control dark-input" value="0" required>
+            </div>
+
+            <div class="col-md-3">
+              <label class="form-label small">Glucose</label>
+              <input name="glucose" type="number" class="form-control dark-input" value="120" required>
+            </div>
+
+            <div class="col-md-3">
+              <label class="form-label small">Blood Pressure</label>
+              <input name="bp" type="number" class="form-control dark-input" value="70" required>
+            </div>
+
+            <div class="col-md-3">
+              <label class="form-label small">Skin Thickness</label>
+              <input name="skin" type="number" class="form-control dark-input" value="20" required>
+            </div>
+
+            <div class="col-md-4">
+              <label class="form-label small">Insulin</label>
+              <input name="insulin" type="number" class="form-control dark-input" value="85" required>
+            </div>
+
+            <div class="col-md-4">
+              <label class="form-label small">BMI</label>
+              <input name="bmi" type="number" step="0.1" class="form-control dark-input" value="30.0" required>
+            </div>
+
+            <div class="col-md-4">
+              <label class="form-label small">Diabetes Pedigree Function</label>
+              <input name="dpf" type="number" step="0.01" class="form-control dark-input" value="0.5" required>
+            </div>
+
+            <div class="col-md-4">
+              <label class="form-label small">Age</label>
+              <input name="age" type="number" class="form-control dark-input" value="45" required>
+            </div>
+
+          </div>
+
+          <div class="mt-4 d-flex gap-2">
+            <button id="predictBtn" class="btn btn-info text-dark fw-bold">Predict Risk</button>
+            <button id="resetBtn" type="button" class="btn btn-outline-light">Reset</button>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- QUICK TIPS -->
+      <div class="mt-3">
+        <div class="card p-3 shadow-sm small dark-card">
+          <h6 class="text-warning">Quick Tips</h6>
+          <p class="mb-0 text-light">Use realistic sample values. The model expects the standard PIMA features.</p>
+        </div>
+      </div>
+
+    </div>
+    <!-- ====================== /LEFT ====================== -->
+
+
+    <!-- ====================== RIGHT SIDE CARD ====================== -->
+    <div class="col-lg-4">
+      <div class="card p-3 shadow-sm dark-card">
+
+        <h6 class="text-info">Patient Info</h6>
+        <p class="small text-light">Enter sample values and press <strong>Predict Risk</strong>. A full report will be generated.</p>
+
+        <hr class="text-secondary">
+
+        <h6 class="text-warning">Recent Results</h6>
+        <ul class="list-unstyled small">
+          {% for r in recent %}
+            <li class="text-light">{{ r.timestamp }} — 
+              <strong class="text-info">{{ r.risk_label }}</strong> 
+              ({{ r.risk_pct }}%)
+            </li>
+          {% else %}
+            <li class="text-secondary">No recent results</li>
+          {% endfor %}
+        </ul>
+
+      </div>
+    </div>
+    <!-- ====================== /RIGHT ====================== -->
+
+  </div>
+</div>
+
+<script>
+document.getElementById("resetBtn").addEventListener("click", function(){
+  document.getElementById("patientForm").reset();
+});
+</script>
+
+</body>
+</html>

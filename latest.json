@@ -1,0 +1,18 @@
+{
+  "id": "f0484675-215d-4d12-b4e3-314af4d921ab",
+  "timestamp": "2025-11-21 19:30:16",
+  "features": {
+    "Pregnancies": 2.0,
+    "Glucose": 181.0,
+    "Blood Pressure": 157.0,
+    "Skin Thickness": 40.0,
+    "Insulin": 101.0,
+    "BMI": 34.1,
+    "DPF": 3.81,
+    "Age": 45.0
+  },
+  "risk_label": "High Risk",
+  "risk_pct": 84.5,
+  "advice_short": "Immediate lifestyle changes and medical checkup recommended.",
+  "doctor_reco": "1) Fasting Blood Sugar\n2) HbA1c test\n3) Consult Endocrinologist\n4) Personalized diet plan\n5) Regular follow-ups"
+}

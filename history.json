@@ -1,0 +1,164 @@
+[
+  {
+    "id": "f0484675-215d-4d12-b4e3-314af4d921ab",
+    "timestamp": "2025-11-21 19:30:16",
+    "features": {
+      "Pregnancies": 2.0,
+      "Glucose": 181.0,
+      "Blood Pressure": 157.0,
+      "Skin Thickness": 40.0,
+      "Insulin": 101.0,
+      "BMI": 34.1,
+      "DPF": 3.81,
+      "Age": 45.0
+    },
+    "risk_label": "High Risk",
+    "risk_pct": 84.5,
+    "advice_short": "Immediate lifestyle changes and medical checkup recommended.",
+    "doctor_reco": "1) Fasting Blood Sugar\n2) HbA1c test\n3) Consult Endocrinologist\n4) Personalized diet plan\n5) Regular follow-ups"
+  },
+  {
+    "id": "2968332e-9a2d-4947-b7aa-ac480a194e22",
+    "timestamp": "2025-11-21 19:29:30",
+    "features": {
+      "Pregnancies": 0.0,
+      "Glucose": 120.0,
+      "Blood Pressure": 70.0,
+      "Skin Thickness": 20.0,
+      "Insulin": 85.0,
+      "BMI": 30.0,
+      "DPF": 0.5,
+      "Age": 45.0
+    },
+    "risk_label": "Low Risk",
+    "risk_pct": 32.3,
+    "advice_short": "Maintain healthy lifestyle; routine checkups.",
+    "doctor_reco": "1) Annual checkup\n2) Maintain healthy diet and exercise"
+  },
+  {
+    "id": "c060c56b-fef4-403f-a535-5061f0655f09",
+    "timestamp": "2025-11-21 19:28:54",
+    "features": {
+      "Pregnancies": 0.0,
+      "Glucose": 120.0,
+      "Blood Pressure": 70.0,
+      "Skin Thickness": 20.0,
+      "Insulin": 85.0,
+      "BMI": 30.0,
+      "DPF": 0.5,
+      "Age": 45.0
+    },
+    "risk_label": "Low Risk",
+    "risk_pct": 32.3,
+    "advice_short": "Maintain healthy lifestyle; routine checkups.",
+    "doctor_reco": "1) Annual checkup\n2) Maintain healthy diet and exercise"
+  },
+  {
+    "id": "9e6a5686-99fa-4dee-90cd-47b916fa0e1b",
+    "timestamp": "2025-11-21 19:28:38",
+    "features": {
+      "Pregnancies": 0.0,
+      "Glucose": 120.0,
+      "Blood Pressure": 70.0,
+      "Skin Thickness": 20.0,
+      "Insulin": 85.0,
+      "BMI": 30.0,
+      "DPF": 0.5,
+      "Age": 45.0
+    },
+    "risk_label": "Low Risk",
+    "risk_pct": 32.3,
+    "advice_short": "Maintain healthy lifestyle; routine checkups.",
+    "doctor_reco": "1) Annual checkup\n2) Maintain healthy diet and exercise"
+  },
+  {
+    "id": "43a5f102-7d8b-4d21-9f41-765d514d9007",
+    "timestamp": "2025-11-21 19:28:28",
+    "features": {
+      "Pregnancies": 0.0,
+      "Glucose": 120.0,
+      "Blood Pressure": 70.0,
+      "Skin Thickness": 20.0,
+      "Insulin": 85.0,
+      "BMI": 30.0,
+      "DPF": 0.5,
+      "Age": 45.0
+    },
+    "risk_label": "Low Risk",
+    "risk_pct": 32.3,
+    "advice_short": "Maintain healthy lifestyle; routine checkups.",
+    "doctor_reco": "1) Annual checkup\n2) Maintain healthy diet and exercise"
+  },
+  {
+    "id": "a2e500f2-816c-4b33-848a-3f06d0e3e582",
+    "timestamp": "2025-11-21 19:25:21",
+    "features": {
+      "Pregnancies": 0.0,
+      "Glucose": 120.0,
+      "Blood Pressure": 70.0,
+      "Skin Thickness": 20.0,
+      "Insulin": 85.0,
+      "BMI": 30.0,
+      "DPF": 0.5,
+      "Age": 45.0
+    },
+    "risk_label": "Low Risk",
+    "risk_pct": 32.3,
+    "advice_short": "Maintain healthy lifestyle; routine checkups.",
+    "doctor_reco": "1) Annual checkup\n2) Maintain healthy diet and exercise"
+  },
+  {
+    "id": "7d581c09-af60-47f1-bd2d-f2c85c0f9915",
+    "timestamp": "2025-11-21 19:24:12",
+    "features": {
+      "Pregnancies": 17.0,
+      "Glucose": 141.0,
+      "Blood Pressure": 158.0,
+      "Skin Thickness": 51.0,
+      "Insulin": 111.0,
+      "BMI": 33.1,
+      "DPF": 4.89,
+      "Age": 45.0
+    },
+    "risk_label": "High Risk",
+    "risk_pct": 85.5,
+    "advice_short": "Immediate lifestyle changes and medical checkup recommended.",
+    "doctor_reco": "1) Fasting Blood Sugar\n2) HbA1c test\n3) Consult Endocrinologist\n4) Personalized diet plan\n5) Regular follow-ups"
+  },
+  {
+    "id": "2e443dd2-24ca-42a8-b683-7c6b04538623",
+    "timestamp": "2025-11-21 19:14:58",
+    "features": {
+      "Pregnancies": 17.0,
+      "Glucose": 141.0,
+      "Blood Pressure": 158.0,
+      "Skin Thickness": 51.0,
+      "Insulin": 111.0,
+      "BMI": 33.1,
+      "DPF": 4.89,
+      "Age": 45.0
+    },
+    "risk_label": "High Risk",
+    "risk_pct": 85.5,
+    "advice_short": "Immediate lifestyle changes and medical checkup recommended.",
+    "doctor_reco": "1) Fasting Blood Sugar\n2) HbA1c test\n3) Consult Endocrinologist\n4) Personalized diet plan\n5) Regular follow-ups"
+  },
+  {
+    "id": "23fd5ef2-e419-4f1e-a402-5a705d619703",
+    "timestamp": "2025-11-21 19:13:46",
+    "features": {
+      "Pregnancies": 0.0,
+      "Glucose": 120.0,
+      "Blood Pressure": 70.0,
+      "Skin Thickness": 20.0,
+      "Insulin": 85.0,
+      "BMI": 30.0,
+      "DPF": 0.5,
+      "Age": 45.0
+    },
+    "risk_label": "Low Risk",
+    "risk_pct": 32.3,
+    "advice_short": "Maintain healthy lifestyle; routine checkups.",
+    "doctor_reco": "1) Annual checkup\n2) Maintain healthy diet and exercise"
+  }
+]

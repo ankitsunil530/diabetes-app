@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Diabetes Result — Health Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap / Chart.js -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='hospital.css') }}">
+
+  <!-- SweetAlert Popups -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+<body class="hospital-bg">
+
+<nav class="navbar navbar-dark bg-dark shadow-sm">
+  <div class="container">
+    <a class="navbar-brand" href="/">🩺 Health Risk Dashboard</a>
+    <div>
+      <a class="btn btn-outline-light me-2" href="/">New Prediction</a>
+      <a class="btn btn-primary" href="/download_report">Download Report (PDF)</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container py-4">
+  <div class="row g-4">
+
+    <!-- Gauge -->
+    <div class="col-lg-5">
+      <div class="card p-4 shadow-sm text-center">
+        <h5 class="text-info">Risk Gauge</h5>
+        <canvas id="gauge" width="300" height="300"></canvas>
+
+        <div class="mt-3">
+          <div class="alert alert-{{ alert_type }} text-center">
+            <strong>{{ risk_label }}</strong> — <span class="fw-bold">{{ risk_pct }}%</span>
+          </div>
+        </div>
+
+        <div class="text-start mt-3">
+          <h6 class="text-warning">Short Advice</h6>
+          <p class="mb-0">{{ advice_short }}</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Summary + Doctor Recommendation -->
+    <div class="col-lg-7">
+      <div class="card p-3 shadow-sm">
+        <h5 class="text-info">Feature Summary</h5>
+
+        <div class="row">
+          {% for key,val in feature_summary.items() %}
+          <div class="col-md-6 mb-2">
+            <div class="p-3 border rounded" style="background:#0f1722;">
+              <div class="text-muted small">{{ key }}</div>
+              <div class="h5 text-light">{{ val }}</div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+
+        <hr class="border-secondary">
+
+        <!-- DOCTOR SECTION -->
+        <h5 class="text-danger mt-2">Doctor Recommendations</h5>
+
+        {% if risk_label == "High Risk" %}
+        <div class="p-3 rounded" style="background:#200f0f; border-left:4px solid #ff4d4f;">
+          <h6 class="text-danger">⚠ Full Medical Guidance</h6>
+
+          <ul class="text-light">
+            <li><b>Immediate Action:</b> Reduce sugar & oily foods immediately.</li>
+            <li><b>Diet Plan:</b> Oats, vegetables, dal, brown rice, high-fiber foods.</li>
+            <li><b>Exercise:</b> 45 min brisk walk or 20 min cycling daily.</li>
+            <li><b>Hydration:</b> 3–4 liters water daily.</li>
+            <li><b>Sleep:</b> 7–8 hours daily.</li>
+            <li><b>Stress Control:</b> Meditation 10 minutes daily.</li>
+          </ul>
+
+          <h6 class="text-warning">🧪 Recommended Medical Tests</h6>
+          <ul class="text-light">
+            <li>HbA1c Test</li>
+            <li>Fasting Blood Sugar (FBS)</li>
+            <li>Post-prandial Blood Sugar</li>
+            <li>Kidney Function Test</li>
+            <li>Lipid Profile</li>
+            <li>Blood Pressure Monitoring</li>
+          </ul>
+
+          <h6 class="text-info">💊 Doctor Suggested Medicines (General)</h6>
+          <ul class="text-light">
+            <li>Metformin (after doctor approval)</li>
+            <li>Vitamin B12</li>
+            <li>Omega-3 Fatty Acids</li>
+            <li>Low-dose aspirin (only if doctor says)</li>
+          </ul>
+
+          <h6 class="text-danger">⚠ Emergency Attention</h6>
+          <p class="text-light">If you feel dizziness, excessive thirst, blurry vision → <b>visit doctor immediately.</b></p>
+        </div>
+
+        {% else %}
+        <div class="p-3 rounded" style="background:#112414; border-left:4px solid #28a745;">
+          <h6 class="text-success">✔ Safe Zone Guidance</h6>
+          <ul class="text-light">
+            <li>Maintain normal diet, avoid excess sugar.</li>
+            <li>Walk 25–30 minutes daily.</li>
+            <li>Monitor blood sugar every 3 months.</li>
+            <li>Stay hydrated.</li>
+          </ul>
+        </div>
+        {% endif %}
+
+        <hr class="border-secondary">
+
+        <h5 class="text-info">Age-based Advice</h5>
+
+        {% if feature_summary['Age'] | int < 25 %}
+          <p class="text-light">Young age — Avoid sugar drinks, exercise regularly.</p>
+        {% elif feature_summary['Age'] | int < 40 %}
+          <p class="text-light">Early career — manage stress, 30–45 min workout daily.</p>
+        {% elif feature_summary['Age'] | int < 60 %}
+          <p class="text-light">Middle age — regular monitoring & weight control.</p>
+        {% else %}
+          <p class="text-light">Senior — light exercise, regular checkups.</p>
+        {% endif %}
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- CHART GAUGE -->
+<script>
+const ctx = document.getElementById('gauge').getContext('2d');
+const risk = {{ risk_pct }};
+const data = {
+  datasets: [{
+    data: [risk, 100-risk],
+    backgroundColor: ['{{ color }}', '#30363d'],
+    borderWidth: 0
+  }]
+};
+
+new Chart(ctx, {
+  type: 'doughnut',
+  data: data,
+  options: {
+    rotation: -100 * Math.PI/180,
+    circumference: 200 * Math.PI/180,
+    cutout: '70%',
+    plugins: { legend: { display:false }, tooltip:{ enabled:false } }
+  }
+});
+</script>
+
+<!-- POPUP ALERT -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const riskLabel = "{{ risk_label }}";
+    const riskPct = "{{ risk_pct }}";
+
+    if (riskLabel === "High Risk") {
+        Swal.fire({
+            title: "⚠ High Diabetes Risk!",
+            html: `<b>${riskPct}% Risk</b><br>Immediate lifestyle change advised.`,
+            icon: "error",
+            background: "#1b1b1b",
+            color: "#ffcccc",
+            confirmButtonColor: "#ff4d4f",
+            confirmButtonText: "Understood"
+        });
+    }
+    else if (riskLabel === "Medium Risk") {
+        Swal.fire({
+            title: "⚠ Moderate Risk",
+            html: `<b>${riskPct}%</b> - Maintain caution.`,
+            icon: "warning",
+            background: "#1b1b1b",
+            color: "#fff3cd",
+            confirmButtonColor: "#d4a017",
+            confirmButtonText: "OK"
+        });
+    }
+    else {
+        Swal.fire({
+            title: "✔ Low Risk",
+            html: `<b>${riskPct}%</b> - You are safe.`,
+            icon: "success",
+            background: "#1b1b1b",
+            color: "#c9f7c1",
+            confirmButtonColor: "#28a745",
+            confirmButtonText: "Great!"
+        });
+    }
+});
+</script>
+
+</body>
+</html>
