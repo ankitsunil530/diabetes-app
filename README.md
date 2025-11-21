@@ -32,13 +32,16 @@ A professional web application for predicting diabetes risk using **Fuzzy Logic*
 
 ## **Screenshots**
 
-![Home Page](screenshots/home.png)  
+<img width="1919" height="871" alt="image" src="https://github.com/user-attachments/assets/d0c9b509-ad41-4d23-8e5d-d1f880a5c9b0" />
+ 
 *Home page for entering patient details*
 
-![Result Page](screenshots/result.png)  
+<img width="1919" height="866" alt="image" src="https://github.com/user-attachments/assets/f9180f72-9ebb-4668-a457-104eda0afd95" />
+ 
 *Risk prediction with gauge, alerts, and recommendations*
 
-![History Page](screenshots/history.png)  
+<img width="1919" height="868" alt="image" src="https://github.com/user-attachments/assets/6b18b157-0641-4649-bf11-7e783d2147ad" />
+  
 *Past prediction history*
 
 ---
