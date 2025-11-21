@@ -1,6 +1,7 @@
-pandas
+gunicorn
+flask
 numpy
+pandas
 scikit-learn
 joblib
-reportlab
-flask
+scikit-fuzzy
