@@ -1,6 +1,4 @@
-Bilkul! Mai aapke **Diabetes Risk Prediction App (Fuzzy Logic)** ke liye ek professional `README.md` file bana deta hoon jo GitHub pe dikhane ke liye perfect hoga:
 
-````markdown
 # Diabetes Risk Prediction App
 
 A professional web application for predicting diabetes risk using **Fuzzy Logic** and **Machine Learning**. The app provides a user-friendly interface, pictorial risk visualization, feature breakdown, doctor-like recommendations, and age-specific tips.
@@ -60,7 +58,7 @@ A professional web application for predicting diabetes risk using **Fuzzy Logic*
    ```bash
    git clone https://github.com/ankitsunil530/diabetes-app.git
    cd diabetes-app
-````
+
 
 2. Create a virtual environment:
 
@@ -140,7 +138,5 @@ MIT License © 2025 Sunil Kumar
 
 ---
 
-Aap chaho to mai **screenshots aur badges (Python version, License, Build Status)** bhi add karke aur attractive bana doon jo GitHub page pe professional dikhe.  
 
-Kya mai wo bhi bana doon?
-```
+
